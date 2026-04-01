@@ -1,0 +1,16 @@
+specVersion: 0.0.4
+
+dataSources:
+  - kind: ethereum/contract
+    name: TapizEngine
+    network: polygon
+    source:
+      address: "0xYOUR_CONTRACT"
+      abi: TapizEngine
+    mapping:
+      kind: ethereum/events
+      entities:
+        - Idea
+      eventHandlers:
+        - event: IdeaRegistrada(bytes32,address)
+          handler: handleIdea
