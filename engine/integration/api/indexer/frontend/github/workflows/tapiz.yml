@@ -1,0 +1,18 @@
+name: tapiz-engine
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  tapiz:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: enviar a api
+        run: |
+          curl -X POST http://YOUR_SERVER:5000/idea \
+          -H "Content-Type: application/json" \
+          -d "{\"text\": \"${{ github.event.issue.body }}\"}"
